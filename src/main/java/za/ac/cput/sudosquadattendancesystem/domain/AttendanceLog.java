@@ -1,4 +1,5 @@
 package za.ac.cput.sudosquadattendancesystem.domain;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -29,8 +30,12 @@ public class AttendanceLog {
     private Integer fingerprintId;
 
     @Column(name = "scan_timestamp", nullable = false)
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime scanTimestamp;
 
     @Column(name = "access_granted", nullable = false)
     private boolean accessGranted;
+
+    @Column(name = "student_name")
+    private String studentName;
 }
